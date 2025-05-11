@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: upload-server-service
+  labels:
+    app: upload-server
+spec:
+  selector:
+    app: upload-server
+  ports:
+    - name: http              # <-- must match what ServiceMonitor looks for
+      protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

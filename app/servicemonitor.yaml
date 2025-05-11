@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: upload-server
+  labels:
+    release: prometheus  # must match your Prometheus Helm release name
+spec:
+  selector:
+    matchLabels:
+      app: upload-server
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s
+  namespaceSelector:
+    matchNames:
+      - default  # or whatever namespace your app is running in

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: upload-server
+  labels:
+    app: upload-server
+    job: upload-server         # <-- for Loki label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: upload-server
+  template:
+    metadata:
+      labels:
+        app: upload-server
+        job: upload-server     # <-- for Loki label
+    spec:
+      containers:
+        - name: upload-server
+          image: deepakk2212/upload-server:v3
+          ports:
+            - containerPort: 80
+              name: http       # <-- required for Prometheus ServiceMonitor
+          volumeMounts:
+            - name: upload-volume
+              mountPath: /uploads
+      volumes:
+        - name: upload-volume
+          persistentVolumeClaim:
+            claimName: upload-pvc
