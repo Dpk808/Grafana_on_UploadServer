@@ -1,1 +1,1 @@
-#Loki Prometheus Grafana for Upload Sever
+# Loki Prometheus Grafana for Upload Sever
