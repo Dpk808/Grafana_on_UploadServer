@@ -39,7 +39,7 @@ helm search repo grafana
 helm install loki grafana/loki --namespace monitoring --version 6.29.0 --values manifests/loki-values.yaml
 kubectl port-forward --namespace monitoring svc/loki-gateway 3100:80
 
-
+![image alt](https://github.com/Dpk808/Grafana_on_UploadServer/blob/main/Grafana%20Screenshots/0.%20Installing%20Loki%20Grafana.png)
 
 
 kubectl get pods -n monitoring
@@ -48,7 +48,7 @@ kubectl get svc -n monitoring
 
 
 
-Installing:
+Installing Prometheus Grafana:
 
 helm repo add grafana https://grafana.github.io/helm-charts
 helm search repo prometheus-community
@@ -58,7 +58,7 @@ kubectl port-forward -n monitoring svc/prometheus-grafana 3000:80
 
 
 
-
+![image alt](https://github.com/Dpk808/Grafana_on_UploadServer/blob/main/Grafana%20Screenshots/0.%20Installing%20Prometheus%20Grafana.png)
 
 
 
