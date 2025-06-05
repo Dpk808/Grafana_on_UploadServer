@@ -34,10 +34,14 @@ Loki Grafana Prometheus DevOps
 Installing Loki:
 
 kubectl create namespace monitoring
-helm repo add grafana https://grafana.github.io/helm-charts
-helm search repo grafana
-helm install loki grafana/loki --namespace monitoring --version 6.29.0 --values manifests/loki-values.yaml
-kubectl port-forward --namespace monitoring svc/loki-gateway 3100:80
+helm repo add grafana https://grafana.github.io/helm-charts 
+
+helm search repo grafana 
+
+helm install loki grafana/loki --namespace monitoring --version 6.29.0 --values manifests/loki-values.yaml 
+
+kubectl port-forward --namespace monitoring svc/loki-gateway 3100:80 
+
 
 ![image alt](https://github.com/Dpk808/Grafana_on_UploadServer/blob/main/Grafana%20Screenshots/0.%20Installing%20Loki%20Grafana.png)
 
